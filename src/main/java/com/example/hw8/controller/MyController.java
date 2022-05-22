@@ -5,6 +5,7 @@ import com.example.hw8.entity.MyEntity;
 import com.example.hw8.service.MyEntityService;
 import com.google.gson.Gson;
 import lombok.AccessLevel;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class MyController {
     MyEntityService myEntityService;
 
     @PostMapping(value = "/createEntity", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<String> createEntity(@RequestBody String body) {
+    public ResponseEntity<String> createEntity(@RequestBody @NonNull String body) {
         Gson g = new Gson();
         GsonObject my = g.fromJson(body, GsonObject.class);
         if (myEntityService.saveEntity(my.getName(), my.getEvents())) {
