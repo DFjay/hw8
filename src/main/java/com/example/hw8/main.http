@@ -2,7 +2,7 @@ POST localhost:8080/createEntity
 Content-Type: application/json
 
 {
-  "name": "Мой список дел",
+  "name": "Мой новый список дел",
   "events": ["дело1", "delo2", "delo3"]
 }
 

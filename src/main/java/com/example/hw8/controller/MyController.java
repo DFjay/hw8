@@ -30,6 +30,6 @@ public class MyController {
             return new ResponseEntity<>(g.toJson(allEntity), HttpStatus.OK);
         }
 
-        return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }

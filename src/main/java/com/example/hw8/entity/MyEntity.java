@@ -1,23 +1,23 @@
 package com.example.hw8.entity;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "my", schema = "public")
 public class MyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
-    @OneToMany(mappedBy = "myEntity", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<EventEntity> events;
+    @Type(type = "com.example.hw8.CustomStringArrayType")
+    String[] events;
 }
